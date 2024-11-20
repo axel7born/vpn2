@@ -27,6 +27,8 @@ tls-auth "/srv/secrets/tlsauth/vpn.tlsauth" 0
 
 proto tcp-server
 
+local ::
+
 server-ipv6 {{ printf "%s" .OpenVPNNetwork }}
 
 {{- if .IsHA }}
