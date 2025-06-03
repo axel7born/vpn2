@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/caarlos0/env/v10"
+	"github.com/caarlos0/env/v11"
 
 	"github.com/gardener/vpn2/pkg/constants"
 	"github.com/gardener/vpn2/pkg/network"
@@ -42,6 +42,9 @@ type VPNClient struct {
 	HAVPNServers         uint          `env:"HA_VPN_SERVERS"`
 	PodLabelSelector     string        `env:"POD_LABEL_SELECTOR" envDefault:"app=kubernetes,role=apiserver"`
 	WaitTime             time.Duration `env:"WAIT_TIME" envDefault:"2s"`
+	WGPublicKey          string        `env:"WIREGUARD_PUBLIC_KEY"`
+	WGPrivateKey         string        `env:"WIREGUARD_PRIVATE_KEY"`
+	WGPort               int           `env:"WIREGUARD_PORT" envDefault:"51820"`
 }
 
 func (v VPNClient) PrimaryIPFamily() string {

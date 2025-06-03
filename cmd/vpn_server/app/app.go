@@ -53,6 +53,7 @@ func NewCommand() *cobra.Command {
 	cmd.AddCommand(firewallCommand())
 	cmd.AddCommand(exporterCommand())
 	cmd.AddCommand(setup.NewCommand())
+	cmd.AddCommand(wireguardCommand())
 	cmd.PersistentFlags().BoolVar(&pprofEnabled, "enable-pprof", false, "enable pprof for profiling")
 	return cmd
 }
